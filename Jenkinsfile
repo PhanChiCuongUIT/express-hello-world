@@ -1,9 +1,9 @@
 //Thông báo
 def sendNotification(String stageName, String status) {
     if (status == 'SUCCESS') {
-        echo "✅ THÀNH CÔNG: Hoàn thành bước [${stageName}]"
+        echo "THÀNH CÔNG: Hoàn thành bước [${stageName}]"
     } else {
-        echo "❌ THẤT BẠI: Lỗi tại bước [${stageName}]. Vui lòng kiểm tra lại!"
+        echo "THẤT BẠI: Lỗi tại bước [${stageName}]. Vui lòng kiểm tra lại!"
     }
 }
 
