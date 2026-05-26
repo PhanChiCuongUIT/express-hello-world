@@ -1,15 +1,15 @@
+//Thông báo
+def sendNotification(String stageName, String status) {
+    if (status == 'SUCCESS') {
+        echo "✅ THÀNH CÔNG: Hoàn thành bước [${stageName}]"
+    } else {
+        echo "❌ THẤT BẠI: Lỗi tại bước [${stageName}]. Vui lòng kiểm tra lại!"
+    }
+}
+
 pipeline {
     agent any
     
-    //Thông báo
-    def sendNotification(String stageName, String status) {
-        def color = (status == 'SUCCESS') ? 'good' : 'danger'
-        slackSend(
-            color: color,
-            message: "Stage [${stageName}]: ${status} - Build #${env.BUILD_NUMBER} (${env.BUILD_URL})"
-        )
-    }
-
     stages {
         stage('Checkout Source Code') {
             steps {
