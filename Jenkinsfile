@@ -9,6 +9,10 @@ def sendNotification(String stageName, String status) {
 
 pipeline {
     agent any
+
+    tools {
+        nodejs 'node18' 
+    }
     
     stages {
         stage('Checkout Source Code') {
